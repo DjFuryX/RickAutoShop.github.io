@@ -1,4 +1,7 @@
 
+/* Question 2 Product Catalogue:
+*/
+
 const currentUser = localStorage.getItem("currentUser");//index of cuurent user logged in
 
 var UsersArray = [];//declare userlist Array
@@ -7,7 +10,14 @@ if (localStorage.getItem("RegistrationData") !== null) {//if User List is not nu
 }
 const listStart = document.getElementById('start');//postion in document to insert products
 
-//array of prodcut objects
+/* Question 2 a.
+Product List (Using Arrays & Objects)
+Create an array of product objects in JavaScript. Each product should have:
+`name`
+`price`
+`description`
+`image`
+*/
 let productList = [
     { Name: "Car Service & Maintenance", price: 5000,drate:.05 ,discription: "Standard Cleaning and Minor repairs ", image: "../images/Maintenance.webp" },
     { Name: "Oil Change", price: 3000,drate:.02 , discription: "Standard Oil Refill and System Maintenance", image: "../images/oil_change.webp" },
@@ -18,9 +28,14 @@ let productList = [
     { Name: "Window Service", price: 1200,drate:.05 ,discription: "Window Repair and Tint", image: "../images/window.webp" },
     { Name: "Alarm System", price: 30700,drate:0.1, discription: "Window Repair and Tint", image: "../images/alarm.webp" }
 ];
+
+/* Question 2 b. An updated product list must be kept on localStorage, as AllProducts. */
+
 //save product to local storage
 localStorage.setItem("AllProducts", JSON.stringify(productList));
 
+
+/* Question 2 c. Display the product list dynamically on the website.  */
 for (let index = productList.length - 1; index >= 0; index--) {// for all products in product list
     
     let name = productList[index].Name;//name of service 
@@ -70,7 +85,7 @@ for (let index = productList.length - 1; index >= 0; index--) {// for all produc
 
     form.appendChild(p2);
 
-
+    //Question 2 d. Each product should have an “Add to Cart” button.
     let chkbox = document.createElement("input");//checkbox input to select service
     chkbox.setAttribute("type", "checkbox");
     chkbox.setAttribute("id", index);
@@ -110,7 +125,7 @@ for (let index = productList.length - 1; index >= 0; index--) {// for all produc
 
 }
 
-
+//Question 2 e. Add to Cart
 function addToCart(button) {//when add to cart checkbox is clicked
 
     let prod=productList[button.id];//get details of prodct selected
@@ -125,7 +140,9 @@ function addToCart(button) {//when add to cart checkbox is clicked
         tax:prod.price*.15
 
     };
-
+    
+    //Question 2 e. i 1. When a user clicks the “Add to Cart” button, add 
+    //the selected product to the user’s shopping cart. 
     if (button.checked) {//when product checkbox is selected
         //add service to cart and calculate tax,discount,subtoatal
         cart.servicelist.push(prodDetails);
@@ -144,6 +161,7 @@ function addToCart(button) {//when add to cart checkbox is clicked
        cart.servicelist=cart.servicelist.filter(function(e) { return e.name !== prod.Name });
     }
 
+    //Question 2 e. i. Shopping Cart (localStorage and Objects)
     //update user Cart
     UsersArray[currentUser].cart=cart;
     localStorage.setItem("RegistrationData",JSON.stringify(UsersArray));

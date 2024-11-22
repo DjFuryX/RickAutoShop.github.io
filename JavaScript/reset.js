@@ -45,6 +45,9 @@ function displayMessage(message, color) {//takes message as string and color of 
     Message.style.color = color;
 }
 
+/*Question 1 b.vi Reset Password hyperlink (used to allow the user to change their
+    password that is associated with the localStorage key called, RegistrationData by matching their trn*/
+
 function setPassword(trnString, pass) {//takea trn as a string and new password
     for (let index = 0; index < UsersArray.length; index++) {//iterates the user list
         if (UsersArray[index].trn === trnString) {//if trn is found 

@@ -14,13 +14,16 @@
     <img class="centerImg" src="../images/RickAutoLogo.webp" alt="Image not found" />
     <h1>Rick's Auto Shop</h1>
     <div class="roundBox">
+        <!--Question 1 a. i. Registration Page:
+    create a registration form where users can enter their 
+     first name, last name, date of birth, gender, phone number, email, tax registration number (trn), and password, etc. 
+    -->
         <form name="register" id="register" class="formContent">
-
             <fieldset>
                 <legend>
                     <p class="heading">Registration</p>
                 </legend>
-
+                <!--Question 1 a. ii. all fields are filled (HTML validation). -->
                 <label for="fname">
                     <span class="text"> First Name</span>
                 </label>
@@ -35,6 +38,7 @@
                 <label for="dob">
                     <span class="text">Date of Birth</span>
                 </label>
+                <!--Question 1 a. iv. visitor must be over 18 years old to register. Calculate using JavaScript.-->
                 <input class="input" type="date" name="dob" id="dob" onchange="validateAge(this)"
                     placeholder="DD/MM/YYYY" required />
 
@@ -59,19 +63,23 @@
                 <label for="trn">
                     <span class="text">TRN</span>
                 </label>
+                <!--Question 1 a. v. trn  must be of length and in the format (000-000-000).-->
                 <input class="input" type="text" name="trn" id="trn" minlength="11" maxlength="11"
                     placeholder="000-000-000" onchange="checkTRN(this.value)" required />
 
                 <label for="password">
                     <span class="text">Password</span>
                 </label>
+                <!--Question 1 a. iii. passwords should be at least 8 characters long.-->
                 <input class="input" type="Password" name="password" id="password" minlength="8" placeholder="&#128274;"
                     required />
                 <div class="input" style="border: none;height: 10px;;">
                     <span id="Message" class="text"></span>
                 </div>
+                <!--Question 1 a. vii.Register (used to stored registration form data) -->
                 <button class="input" type="submit" value="LOGIN">
                     <span class="text"> Register</span></button>
+                <!--Question 1 a. viii. Cancel (used to clear data from the registration form)-->
                 <button class="input" type="reset" value="LOGIN">
                     <span class="text"> Cancel</span></button>
                 <div>
@@ -84,17 +92,17 @@
 
     <!-- Footer Section -->
     <footer class="footerMain">
-             <p> <b> Telephone:</b>1(<i>876</i>) 598-8988</p>
-            <p> <b>Email Address:</b>RicksAutoShop@gov.jm</p>
-            <p><b> Location:</b>
-                <p>207 Harbour Street</p>
-                <p>Building H</p>
-                <p>Montego Bay</p>
-                <p>St. James</p>
-            </p>
-            <a href="#top">To Top</a> |
-            <a href="../index.html">Login</a>
-       
+        <p> <b> Telephone:</b>1(<i>876</i>) 598-8988</p>
+        <p> <b>Email Address:</b>RicksAutoShop@gov.jm</p>
+        <p><b> Location:</b>
+        <p>207 Harbour Street</p>
+        <p>Building H</p>
+        <p>Montego Bay</p>
+        <p>St. James</p>
+        </p>
+        <a href="#top">To Top</a> |
+        <a href="../index.html">Login</a>
+
     </footer>
 
 </body>

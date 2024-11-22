@@ -53,7 +53,7 @@ function displayCartSummary() {
     document.getElementById('subTotal').innerText = `$${subtotal}`;
     document.getElementById('totalTax').innerText = `$${totalTax}`;
     document.getElementById('totalDiscount').innerText = `$${totalDiscount}`;
-    document.getElementById('GrandTotal').innerText = `${(subtotal + totalTax) - totalDiscount}`;
+    document.getElementById('GrandTotal').innerText = `$${(subtotal + totalTax) - totalDiscount}`;
 
     // Display the current date
     const date = new Date().toLocaleDateString();

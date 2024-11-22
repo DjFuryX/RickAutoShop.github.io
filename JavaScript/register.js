@@ -1,8 +1,17 @@
 
+
+//Question 1. User Authentication (LocalStorage)
+
 const form = document.getElementById('register');//get register form
 const Message = document.getElementById('Message');//element to show any messag
 const phone = document.getElementById('phone');//input for user phone number
 const trn = document.getElementById('trn');//input got user trn
+
+
+/*Question 1 a. vi.
+store registration information (ie. first name, last name, date of birth, gender, phone number,
+email, tax registration number (trn), password, date of registration, cart{}, invoices[]) 
+as a JavaScript object*/
 
 //User object that stores all information on a customer
 const User = {
@@ -14,6 +23,8 @@ const User = {
     phone: "",
     email: "",
     password: "",
+    /*Question 2 e. i 2. Shopping cart must include
+    product details along with the taxes, discounts, subtotal and current total cost.*/
     cart: {
         servicelist: [],
         totalDiscount: 0,
@@ -61,6 +72,11 @@ form.addEventListener("submit", function (event) {//add function to submit butto
         else {
             if (checkTRN(User.trn)) {//check if trn exist in the local storage
                 UsersArray.push(User);//add user object to User list array
+
+                /*Question 1 a. vi.
+                Each registration record must be appended to localStorage key called 
+                RegistrationData using JavaScript (as an array of objects.) */
+
                 localStorage.setItem("RegistrationData", JSON.stringify(UsersArray));//store in local storage
                 displayMessage("User is now Registered", "green");//display message
                 //wait 1 second
@@ -88,6 +104,7 @@ phone.addEventListener("keydown", (e) => {//format Phone Number input
 
 });
 
+//Question 1 a. v. trn  must be of length and in the format (000-000-000).
 trn.addEventListener("keydown", (e) => {//format Trn input
     if (e.key === "Backspace" || e.key === "Delete") return;
 
@@ -105,7 +122,8 @@ function displayMessage(message, color) {//takes message as string and color of 
     Message.style.color = color;
 }
 
-function validateAge(dob) {//Ensure User is 18 or older
+//Question 1 a. iv. visitor must be over 18 years old to register. Calculate using JavaScript
+function validateAge(dob) {
     let currentDate = new Date();//get current date
     let bornDate = new Date(dob.value);//create ne Date from user input
 
@@ -127,6 +145,7 @@ function validateAge(dob) {//Ensure User is 18 or older
 function checkTRN(userTrn) {//Ensure TRN is unique
     let unique = true;//boolean to track if the trn is unique
 
+    //Question 1 a. v. trn is unique;
     for (let index = 0; index < UsersArray.length; index++) {//iterate User list
         if (UsersArray[index].trn === userTrn) {//if the trn is found user already exist
             unique = false;//unique is set to false
