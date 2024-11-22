@@ -18,14 +18,15 @@ window.onload = function () {
 function ShowUserFrequency() {
 
     let GenderChart = document.getElementById("GenderChart");
+    //control chart bar height
     const MaxBarHeight = 180;
     const MinBarHeight = 20;
-
+    //array of total for each gender
     const genderdata = [0, 0, 0]
 
 
     for (let index = 0; index < UsersArray.length; index++) {//iterate list of user
-
+        //count total for each gender 
         if (UsersArray[index].gender === "Male") {
             genderdata[1]++;
         } if (UsersArray[index].gender === "Female") {
@@ -36,21 +37,21 @@ function ShowUserFrequency() {
 
     }
 
+    //add a bar for each total in the array
     genderdata.forEach(Total => {
         const bar = document.createElement('div');
         bar.classList.add('bar');
         bar.style.height = scale(Total,genderdata) + "px";
         bar.innerHTML = Total;
         GenderChart.append(bar);
-    }
+    });
 
-
-    )
     //scales bar height 
     function scale(unscaledNum,values) {
-        
         var min=Math.min.apply(null, values);
         var max=Math.max.apply(null,values);
+
+        //ensure the bar falls within the minimun and maximum height
         return (MaxBarHeight - MinBarHeight) * (unscaledNum - min) / (max - min) + MinBarHeight;
     }
 
@@ -58,8 +59,6 @@ function ShowUserFrequency() {
 
     /* JavaScript for Charts */
     let currentDate = new Date();//get current date
-
-
     // Initialize counters forand age groups
     const ageGroupCounts = { "18-25": 0, "26-35": 0, "36-50": 0, "50+": 0 };
 
@@ -85,12 +84,14 @@ function ShowUserFrequency() {
     
 
     // Create Age Group Chart
-    const ageContainer = document.getElementById('AgeChart');
+    const ageContainer = document.getElementById('AgeChart');//get body of age chart
+    //Create a bar for each age group
     Object.keys(ageGroupCounts).forEach(ageGroup => {
         const bar = document.createElement('div');
         bar.classList.add('bar');
         bar.style.height = scale(ageGroupCounts[ageGroup],Object.values(ageGroupCounts)) + "px";
         bar.innerHTML = ageGroupCounts[ageGroup];
+        //add bar to chart body
         ageContainer.appendChild(bar);
     });
 
@@ -98,18 +99,24 @@ function ShowUserFrequency() {
 
 /* JavaScript for Charts and Invoices */
 
+//show all invoices stored in the local storage Allinvoice
 function ShowInvoices() {
     const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+    //get user value to search for
     const searchQuery = document.getElementById("searchAllInvoices").value.trim().toLowerCase();
+
+    //find search query in the allInvoice and add to the Flitered invoice array
     const filteredInvoices = searchQuery
         ? allInvoices.filter(invoice =>
             invoice.trn.toLowerCase().includes(searchQuery) ||
             invoice.invoiceNumber.toLowerCase().includes(searchQuery))
         : allInvoices;
-
+    //get body of invoice table
     const tableBody = document.getElementById("invoicesTable");
+    //clear the table body
     tableBody.innerHTML = "";
-
+    
+    //add each invoice to the table
     filteredInvoices.forEach(invoice => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -121,6 +128,7 @@ function ShowInvoices() {
         tableBody.appendChild(row);
     });
 
+    // log the invoices found
     console.log(filteredInvoices);
 }
 
@@ -133,7 +141,7 @@ function GetUserInovices() {
     if (invoiceNum === "novalue") {//SHow all invoices  for current User
         userInvoice = allInvoices.filter(invoice => invoice.trn.includes(userTRN));
     }
-    else {//filet byy customer inoice number
+    else {//filer byy customer inoice number
         userInvoice = allInvoices.filter(invoice => invoice.invoiceNumber === invoiceNum);
     }
 
@@ -152,28 +160,3 @@ function GetUserInovices() {
     });
 }
 
-function SearchUserInvoices() {
-    const searchQuery = document.getElementById("searchUserInvoices").value.trim().toLowerCase();
-    const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
-    const userTRN = localStorage.getItem("RegistrationData") || [];
-    console.log(userTRN);
-    const userInvoices = allInvoices.filter(invoice => invoice.trn === userTRN);
-    const filteredUserInvoices = searchQuery
-        ? userInvoices.filter(invoice =>
-            invoice.invoiceNumber.toLowerCase().includes(searchQuery))
-        : userInvoices;
-
-    const tableBody = document.getElementById("invoicesTable");
-    tableBody.innerHTML = "";
-
-    filteredUserInvoices.forEach(invoice => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${invoice.id}</td>
-            <td>${invoice.trn}</td>
-            <td>${invoice.date}</td>
-            <td>${invoice.total}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-};
