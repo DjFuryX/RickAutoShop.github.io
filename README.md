@@ -6,6 +6,7 @@
 * Login Page
 * Registration Page
 * Reset Page
+* Error Page
 * Home Page
 * Service Page
  Assited with:
