@@ -8,7 +8,8 @@
 * Reset Page
 * Error Page
 * Home Page
-* Service Page *
+* Service Page
+  
  Assited with:
 * Site Wireframe
 * Stats Page
