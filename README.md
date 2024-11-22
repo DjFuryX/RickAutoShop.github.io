@@ -13,11 +13,18 @@
 * Site Wireframe
 * Stats Page
 
+## Andre Ferguson
+Created Html,CSS and JavaScript for:
+* Cart Page
+* Checkout Page
+
 ## Nigel Hutchinson - 2302674
  Created Html,CSS and JavaScript for:
 
 ## Otre Miller - 2304213
  Created Html,CSS and JavaScript for:
  * Invoice Generation
+
+
 
 # Systems Used
