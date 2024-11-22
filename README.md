@@ -21,6 +21,7 @@ Created Html,CSS and JavaScript for:
 
 ## Nigel Hutchinson - 2302674
  Created Html,CSS and JavaScript for:
+ * Stats Page
 
 ## Otre Miller - 2304213
  Created Html,CSS and JavaScript for:
