@@ -13,8 +13,10 @@
 * Stats Page
 
 ## Nigel Hutchinson - 2302674
+ Created Html,CSS and JavaScript for:
 
 ## Otre Miller - 2304213
+ Created Html,CSS and JavaScript for:
  * Invoice Generation
 
 # Systems Used
