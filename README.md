@@ -1,20 +1,20 @@
 # Rick's AutoShop
 # hosted at https://djfuryx.github.io/RicksAutoShop
 
-# Norman Martin - 2300232
-# Created Html,CSS and JavaScript for:
-#   Login Page
-#   Registration Page
-#   Reset Page
-#   Home Page
-#   Service Page
-# Assited with:
-#   Site Wireframe
-#   Stats Page
+Norman Martin - 2300232
+ Created Html,CSS and JavaScript for:
+   Login Page
+   Registration Page
+   Reset Page
+   Home Page
+   Service Page
+ Assited with:
+   Site Wireframe
+   Stats Page
 
-#  Nigel Hutchinson - 2302674
+  Nigel Hutchinson - 2302674
 
-# Otre Miller - 2304213
-# Invoice Generation
+ Otre Miller - 2304213
+ Invoice Generation
 
-# Systems Used
+ Systems Used
